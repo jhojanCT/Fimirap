@@ -23,7 +23,7 @@
             <i class="material-icons">people</i>
           </div>
           <div class="content">
-            <div class="text">Proveedores</div>
+            <div class="text">refeedts</div>
             <div class="number">{{ info.total_vendor }}</div>
           </div>
         </div>
@@ -35,7 +35,7 @@
             <i class="material-icons">category</i>
           </div>
           <div class="content">
-            <div class="text">Productos</div>
+            <div class="text">Producjtssoos</div>
             <div class="number">{{ info.total_product }}</div>
           </div>
         </div>

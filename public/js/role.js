@@ -23488,7 +23488,7 @@ module.exports = {
 /* 169 */
 /***/ (function(module, exports) {
 
-module.exports = {"_from":"axios@^0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"axios@^0.21.4","name":"axios","escapedName":"axios","rawSpec":"^0.21.4","saveSpec":null,"fetchSpec":"^0.21.4"},"_requiredBy":["/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_shasum":"c67b90dc0568e5c1cf2b0b858c43ba28e2eda575","_spec":"axios@^0.21.4","_where":"C:\\laragon\\www\\inventory","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundleDependencies":false,"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"deprecated":false,"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}
+module.exports = {"_args":[["axios@0.21.4","C:\\laragon\\www\\Fimirap"]],"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"C:\\laragon\\www\\Fimirap","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}
 
 /***/ }),
 /* 170 */
@@ -38886,7 +38886,7 @@ var Component = __webpack_require__(3)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "C:\\laragon\\www\\inventory\\resources\\assets\\js\\components\\role\\CreateRole.vue"
+Component.options.__file = "C:\\laragon\\www\\Fimirap\\resources\\assets\\js\\components\\role\\CreateRole.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] CreateRole.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -38897,9 +38897,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-525210b7", Component.options)
+    hotAPI.createRecord("data-v-eaa7f05e", Component.options)
   } else {
-    hotAPI.reload("data-v-525210b7", Component.options)
+    hotAPI.reload("data-v-eaa7f05e", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -39113,7 +39113,7 @@ module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-525210b7", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-eaa7f05e", module.exports)
   }
 }
 
@@ -39134,7 +39134,7 @@ var Component = __webpack_require__(3)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "C:\\laragon\\www\\inventory\\resources\\assets\\js\\components\\role\\ViewRole.vue"
+Component.options.__file = "C:\\laragon\\www\\Fimirap\\resources\\assets\\js\\components\\role\\ViewRole.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] ViewRole.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -39145,9 +39145,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-083c70a0", Component.options)
+    hotAPI.createRecord("data-v-6cfd663a", Component.options)
   } else {
-    hotAPI.reload("data-v-083c70a0", Component.options)
+    hotAPI.reload("data-v-6cfd663a", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -39338,7 +39338,7 @@ var Component = __webpack_require__(3)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "C:\\laragon\\www\\inventory\\resources\\assets\\js\\components\\role\\UpdateRole.vue"
+Component.options.__file = "C:\\laragon\\www\\Fimirap\\resources\\assets\\js\\components\\role\\UpdateRole.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] UpdateRole.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -39349,9 +39349,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-4f328b84", Component.options)
+    hotAPI.createRecord("data-v-f0e6fac4", Component.options)
   } else {
-    hotAPI.reload("data-v-4f328b84", Component.options)
+    hotAPI.reload("data-v-f0e6fac4", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -39602,7 +39602,7 @@ module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-4f328b84", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-f0e6fac4", module.exports)
   }
 }
 
@@ -39623,7 +39623,7 @@ var Component = __webpack_require__(3)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "C:\\laragon\\www\\inventory\\resources\\assets\\js\\components\\role\\AssignRole.vue"
+Component.options.__file = "C:\\laragon\\www\\Fimirap\\resources\\assets\\js\\components\\role\\AssignRole.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] AssignRole.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -39634,9 +39634,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-5ea34daa", Component.options)
+    hotAPI.createRecord("data-v-d2057678", Component.options)
   } else {
-    hotAPI.reload("data-v-5ea34daa", Component.options)
+    hotAPI.reload("data-v-d2057678", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -39979,7 +39979,7 @@ module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-5ea34daa", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-d2057678", module.exports)
   }
 }
 
@@ -40044,7 +40044,7 @@ module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-083c70a0", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-6cfd663a", module.exports)
   }
 }
 
