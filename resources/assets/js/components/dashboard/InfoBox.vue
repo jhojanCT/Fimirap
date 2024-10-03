@@ -11,7 +11,7 @@
             <i class="material-icons">contacts</i>
           </div>
           <div class="content">
-            <div class="text">Clientes</div>
+            <div class="text">Clientessssssss</div>
             <div class="number">{{ info.total_customer }}</div>
           </div>
         </div>
