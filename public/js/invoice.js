@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 242);
+/******/ 	return __webpack_require__(__webpack_require__.s = 243);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -41419,34 +41419,6 @@ __vue_render__$4._withStripped = true;
 
 /***/ }),
 /* 183 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
-// mixins for moment js ... recomanded to not include when you don't need it
-
-/* harmony default export */ __webpack_exports__["a"] = ({
-   created: function created() {
-
-      // this.hello();
-
-   },
-
-
-   methods: {},
-
-   filters: {
-      moment: function moment(date, format) {
-         return __WEBPACK_IMPORTED_MODULE_0_moment___default()(date).format(format);
-      }
-
-   }
-
-});
-
-/***/ }),
-/* 184 */
 /***/ (function(module, exports) {
 
 /*
@@ -41528,7 +41500,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 185 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -41547,7 +41519,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(247)
+var listToStyles = __webpack_require__(186)
 
 /*
 type StyleObject = {
@@ -41756,7 +41728,67 @@ function applyToTag (styleElement, obj) {
 
 
 /***/ }),
-/* 186 */,
+/* 185 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
+// mixins for moment js ... recomanded to not include when you don't need it
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+   created: function created() {
+
+      // this.hello();
+
+   },
+
+
+   methods: {},
+
+   filters: {
+      moment: function moment(date, format) {
+         return __WEBPACK_IMPORTED_MODULE_0_moment___default()(date).format(format);
+      }
+
+   }
+
+});
+
+/***/ }),
+/* 186 */
+/***/ (function(module, exports) {
+
+/**
+ * Translates the list format produced by css-loader into something
+ * easier to manipulate.
+ */
+module.exports = function listToStyles (parentId, list) {
+  var styles = []
+  var newStyles = {}
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i]
+    var id = item[0]
+    var css = item[1]
+    var media = item[2]
+    var sourceMap = item[3]
+    var part = {
+      id: parentId + ':' + i,
+      css: css,
+      media: media,
+      sourceMap: sourceMap
+    }
+    if (!newStyles[id]) {
+      styles.push(newStyles[id] = { id: id, parts: [part] })
+    } else {
+      newStyles[id].parts.push(part)
+    }
+  }
+  return styles
+}
+
+
+/***/ }),
 /* 187 */,
 /* 188 */,
 /* 189 */,
@@ -41812,18 +41844,19 @@ function applyToTag (styleElement, obj) {
 /* 239 */,
 /* 240 */,
 /* 241 */,
-/* 242 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(243);
-
-
-/***/ }),
+/* 242 */,
 /* 243 */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = __webpack_require__(244);
+
+
+/***/ }),
+/* 244 */
+/***/ (function(module, exports, __webpack_require__) {
+
 __webpack_require__(2);
-Vue.component('create-invoice', __webpack_require__(244));
+Vue.component('create-invoice', __webpack_require__(245));
 Vue.component('view-invoice', __webpack_require__(251));
 
 var app = new Vue({
@@ -41832,13 +41865,13 @@ var app = new Vue({
 });
 
 /***/ }),
-/* 244 */
+/* 245 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(245)
+  __webpack_require__(246)
 }
 var Component = __webpack_require__(3)(
   /* script */
@@ -41876,17 +41909,17 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 245 */
+/* 246 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(246);
+var content = __webpack_require__(247);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(185)("012f01fd", content, false, {});
+var update = __webpack_require__(184)("012f01fd", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -41902,10 +41935,10 @@ if(false) {
 }
 
 /***/ }),
-/* 246 */
+/* 247 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(184)(false);
+exports = module.exports = __webpack_require__(183)(false);
 // imports
 
 
@@ -41913,39 +41946,6 @@ exports = module.exports = __webpack_require__(184)(false);
 exports.push([module.i, "\n.requiredField {\r\n  color: red;\n}\r\n", ""]);
 
 // exports
-
-
-/***/ }),
-/* 247 */
-/***/ (function(module, exports) {
-
-/**
- * Translates the list format produced by css-loader into something
- * easier to manipulate.
- */
-module.exports = function listToStyles (parentId, list) {
-  var styles = []
-  var newStyles = {}
-  for (var i = 0; i < list.length; i++) {
-    var item = list[i]
-    var id = item[0]
-    var css = item[1]
-    var media = item[2]
-    var sourceMap = item[3]
-    var part = {
-      id: parentId + ':' + i,
-      css: css,
-      media: media,
-      sourceMap: sourceMap
-    }
-    if (!newStyles[id]) {
-      styles.push(newStyles[id] = { id: id, parts: [part] })
-    } else {
-      newStyles[id].parts.push(part)
-    }
-  }
-  return styles
-}
 
 
 /***/ }),
@@ -43357,7 +43357,7 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_asset__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mixin_js__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__moment_mixin_js__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__moment_mixin_js__ = __webpack_require__(185);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pagination_pagination_vue__ = __webpack_require__(179);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pagination_pagination_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__pagination_pagination_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vuejs_datepicker__ = __webpack_require__(182);
@@ -43671,7 +43671,7 @@ var content = __webpack_require__(255);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(185)("5b261a9c", content, false, {});
+var update = __webpack_require__(184)("5b261a9c", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -43690,7 +43690,7 @@ if(false) {
 /* 255 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(184)(false);
+exports = module.exports = __webpack_require__(183)(false);
 // imports
 
 
@@ -44792,7 +44792,7 @@ var content = __webpack_require__(260);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(185)("015d1d7c", content, false, {});
+var update = __webpack_require__(184)("015d1d7c", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -44811,7 +44811,7 @@ if(false) {
 /* 260 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(184)(false);
+exports = module.exports = __webpack_require__(183)(false);
 // imports
 
 
@@ -45190,7 +45190,7 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vue_asset__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mixin_js__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__moment_mixin_js__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__moment_mixin_js__ = __webpack_require__(185);
 //
 //
 //

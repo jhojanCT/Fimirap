@@ -29,8 +29,9 @@
         <table class="table table-condensed table-hover">
           <thead>
             <tr>
-              <th>Categoría</th>
+              <th>Categoria</th>
               <th>Nombre</th>
+              <th>Cantidad </th>
               <th>Detalles</th>
               <th>Editar</th>
               <th>Eliminar</th>
@@ -40,6 +41,7 @@
             <tr v-for="(value,index) in products.data">
               <td>{{ value.category.name }}</td>
               <td>{{ value.product_name }}</td>
+              <td>{{ value.current_quantity ||'no disponible'}}</td>
               <td>
                 <div
                   style="width: 650px; text-align: justify; height: 40px; white-space: normal; text-overflow: ellipsis; overflow: hidden;">{{ value.details }}</div>
@@ -115,26 +117,34 @@ export default {
 
   methods: {
     getData(page = 1) {
-      this.isLoading = true;
-      axios
-        .get(
-          base_url +
-            "product-list?page=" +
-            page +
-            "&name=" +
-            this.name +
-            "&cat=" +
-            this.cat
-        )
-        .then((response) => {
-          // console.log(response.data);
+  this.isLoading = true;
 
-          this.products = response.data;
-          this.isLoading = false;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+  // Hacemos dos solicitudes al mismo tiempo: a `product-list` y `stock-list`
+  Promise.all([
+    axios.get(base_url + "product-list?page=" + page + "&name=" + this.name + "&cat=" + this.cat),
+    axios.get(base_url + "stock-list") // Este es el endpoint donde tienes las cantidades
+  ])
+  .then(([productResponse, stockResponse]) => {
+    // productResponse es la respuesta de `product-list`
+    // stockResponse es la respuesta de `stock-list`
+    
+    let products = productResponse.data.data; // Supongo que los productos están en `data`
+    let stocks = stockResponse.data.data; // Los datos de stocks también en `data`
+    
+    // Unimos la cantidad (`current_quantity`) del stock con cada producto
+    products.forEach(product => {
+      let stock = stocks.find(s => s.product.id === product.id);
+      product.current_quantity = stock ? stock.current_quantity : 'No disponible';
+    });
+
+    this.products = productResponse.data; // Asignamos los productos a `this.products`
+    this.isLoading = false;
+  })
+  .catch((error) => {
+    console.log(error);
+    this.isLoading = false;
+  });
+
     },
 
     // edit vendor

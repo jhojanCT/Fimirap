@@ -1,166 +1,19 @@
 <template>
-  <div class="wrap">
+  <div class="container">
+
     <div class="row" v-if="isLoading">
-      <h1 style="text-align:center">Cargando......</h1>
+      <h1 class="loading-message">Cargando datos... Un momento por favor.</h1>
     </div>
 
-    <div class="row clearfix" v-if="!isLoading">
-      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box bg-teal hover-zoom-effect">
-          <div class="icon">
-            <i class="material-icons">contacts</i>
+    <div class="row" v-if="!isLoading">
+      <div v-for="(item, index) in infoItems" :key="index" class="col-lg-4 col-md-6 col-sm-12">
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="material-icons">{{ item.icon }}</i>
           </div>
-          <div class="content">
-            <div class="text">Clientessssssss</div>
-            <div class="number">{{ info.total_customer }}</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box bg-orange hover-zoom-effect">
-          <div class="icon">
-            <i class="material-icons">people</i>
-          </div>
-          <div class="content">
-            <div class="text">Proveedores</div>
-            <div class="number">{{ info.total_vendor }}</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box bg-deep-purple hover-zoom-effect">
-          <div class="icon">
-            <i class="material-icons">category</i>
-          </div>
-          <div class="content">
-            <div class="text">Productos</div>
-            <div class="number">{{ info.total_product }}</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box bg-blue-grey hover-zoom-effect">
-          <div class="icon">
-            <i class="material-icons">receipt</i>
-          </div>
-          <div class="content">
-            <div class="text">Facturas</div>
-            <div class="number">{{ info.total_invoice }}</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box bg-indigo hover-zoom-effect">
-          <div class="icon">
-            <i class="material-icons">local_mall</i>
-          </div>
-          <div class="content">
-            <div class="text">Existencia total</div>
-            <div class="number">
-              <small>{{ info.total_quantity }}</small>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box bg-pink hover-zoom-effect">
-          <div class="icon">
-            <i class="material-icons">local_shipping</i>
-          </div>
-          <div class="content">
-            <div class="text">Existencia vendida</div>
-            <div class="number">
-              <small>{{ info.total_sold_quantity }}</small>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box bg-blue hover-zoom-effect">
-          <div class="icon">
-            <i class="material-icons">bar_chart</i>
-          </div>
-          <div class="content">
-            <div class="text">Existencia actual</div>
-            <div class="number">
-              <small>{{ info.total_current_quantity }}</small>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box bg-deep-orange hover-zoom-effect">
-          <div class="icon">
-            <i class="material-icons">payment</i>
-          </div>
-          <div class="content">
-            <div class="text">Importe vendido</div>
-            <div class="number">
-              <small>$ {{ info.total_sold_amount }}</small>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box bg-green hover-zoom-effect">
-          <div class="icon">
-            <i class="material-icons">attach_money</i>
-          </div>
-          <div class="content">
-            <div class="text">Importe pagado</div>
-            <div class="number">
-              <small>$ {{ info.total_paid_amount }}</small>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box bg-red hover-zoom-effect">
-          <div class="icon">
-            <i class="material-icons">money_off</i>
-          </div>
-          <div class="content">
-            <div class="text">Importe restante</div>
-            <div class="number">
-              <small>$ {{ info.total_outstanding }}</small>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box bg-brown hover-zoom-effect">
-          <div class="icon">
-            <i class="material-icons">payments</i>
-          </div>
-          <div class="content">
-            <div class="text">Beneficio bruto</div>
-            <div class="number">
-              <small>$ {{ info.total_gross_profit }}</small>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box bg-cyan hover-zoom-effect">
-          <div class="icon">
-            <i class="material-icons">money</i>
-          </div>
-          <div class="content">
-            <div class="text">Beneficio neto</div>
-            <div class="number">
-              <small>$ {{ info.total_net_profit }}</small>
-            </div>
+          <div class="info-content">
+            <div class="info-title">{{ item.title }}</div>
+            <div class="info-value">{{ item.value }}</div>
           </div>
         </div>
       </div>
@@ -171,24 +24,103 @@
 <script>
 import { EventBus } from "../../vue-asset";
 import mixin from "../../mixin";
+
 export default {
   data() {
     return {
       info: {},
       isLoading: true,
+      infoItems: []
     };
   },
-
+  
   created() {
     this.getData();
   },
+
   methods: {
     getData() {
       axios.get(base_url + "info-box").then((response) => {
         this.info = response.data;
         this.isLoading = false;
+
+        // Actualiza infoItems con los datos reales
+        this.infoItems = [
+          { title: 'Clientes', value: this.info.total_customer, icon: 'person' },
+          { title: 'Proveedores', value: this.info.total_vendor, icon: 'local_shipping' },
+          { title: 'Productos', value: this.info.total_product, icon: 'inventory' },
+          { title: 'Facturas', value: this.info.total_invoice, icon: 'receipt_long' },
+          { title: 'Existencia Total', value: this.info.total_quantity, icon: 'layers' },
+          { title: 'Existencia Vendida', value: this.info.total_sold_quantity, icon: 'shopping_cart' },
+          { title: 'Existencia Actual', value: this.info.total_current_quantity, icon: 'bar_chart' },
+          { title: 'Importe Vendido', value: `$ ${this.info.total_sold_amount}`, icon: 'attach_money' },
+          { title: 'Importe Pagado', value: `$ ${this.info.total_paid_amount}`, icon: 'payment' },
+          { title: 'Beneficio Bruto', value: `$ ${this.info.total_gross_profit}`, icon: 'stacked_bar_chart' },
+          { title: 'Beneficio Neto', value: `$ ${this.info.total_net_profit}`, icon: 'monetization_on' },
+        ];
       });
     },
   },
 };
 </script>
+
+<style scoped>
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 3rem;
+  background-color: #f4f4f4;
+}
+
+.loading-message {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #2e7d32;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-left: 3px
+}
+
+.info-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+}
+
+.info-icon {
+  background-color: #2e7d32;
+  border-radius: 50%;
+  padding: 1rem;
+  color: #ffffff;
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+
+.info-content {
+  flex-grow: 1;
+}
+
+.info-title {
+  font-size: 2rem;
+  color: #4caf50;
+  font-weight: 600;
+}
+
+.info-value {
+  font-size: 2.2rem;
+  color: #212121;
+  font-weight: bold;
+}
+</style>
