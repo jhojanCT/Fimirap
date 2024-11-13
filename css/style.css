@@ -7512,6 +7512,8 @@ fieldset[disabled] .form-control {
   animation-duration: .3s !important; }
 
 /* Left Sidebar & Overlay ====================== */
+
+
 .overlay {
   position: fixed;
   cursor: pointer;

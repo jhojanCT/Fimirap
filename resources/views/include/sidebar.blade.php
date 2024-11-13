@@ -4,6 +4,7 @@
             <div class="user-info">
                 <div class="image">
                     <img src="{{ url('images/user.png') }}" width="60" height="60" alt="User" />
+                    
                 </div>
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</div>
@@ -13,6 +14,7 @@
                         <ul class="dropdown-menu pull-right">
                             <li><a href="{{ url('password-change') }}"><i class="material-icons">person</i>Perfil</a></li>
                             <li><a href="{{ url('logout') }}"><i class="material-icons">input</i>Desconectar</a></li>
+                            
                         </ul>
                     </div>
                 </div>
