@@ -23,7 +23,7 @@
             <!-- Menu -->
             <div class="menu">
                 <ul class="list">
-                    <li class="header">NAVEGACIÓN PRINCIPAL</li>
+                    <li class="header"></li>
 
                     @php
 
