@@ -1,44 +1,55 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Stock;
 use App\Product;
 use App\Category;
+use App\Vendor;
 use Illuminate\Http\Request;
 
 class FilterController extends Controller
 {
+    /**
+     * Muestra la página con filtros y datos de stock.
+     */
     public function index(Request $request)
-    {
-        // Definimos las variables para las consultas, utilizando el Request para obtener filtros
-        $stock = Stock::with('product', 'category')
-            ->orderBy('updated_at', 'desc');
+{
+    // Validar el Request para evitar valores inválidos
+    $request->validate([
+        'category' => 'nullable|exists:categories,id',
+        'product' => 'nullable|exists:products,id',
+    ]);
 
-        // Filtrar por categoría (opcional)
-        if ($request->has('category') && $request->category != '') {
-            $stock->where('category_id', $request->category);
-        }
+    // Crear consulta base
+    $stocksQuery = Stock::with(['product', 'category'])
+        ->orderBy('updated_at', 'desc');
 
-        // Filtrar por producto (opcional)
-        if ($request->has('product') && $request->product != '') {
-            $stock->where('product_id', $request->product);
-        }
-
-        // Obtener los resultados filtrados
-        $stocks = $stock->get();
-
-        // Calcular la cantidad de desperdicio
-        $stocks = $stocks->map(function ($stock) {
-            // Calcular el desperdicio (por ejemplo, si la cantidad actual es 0)
-            $stock->waste_quantity = $stock->current_quantity <= 0 ? $stock->stock_quantity : 0;
-            return $stock;
-        });
-
-        // Obtener todas las categorías y productos para los filtros
-        $categories = Category::all();
-        $products = Product::all();
-
-        // Devolver la vista con los datos
-        return view('filter.filter', compact('stocks', 'categories', 'products'));
+    // Aplicar filtros
+    if ($request->filled('category')) {
+        $stocksQuery->where('category_id', $request->category);
     }
+
+    if ($request->filled('product')) {
+        $stocksQuery->where('product_id', $request->product);
+    }
+
+    // Obtener los resultados de la consulta
+    $stocks = $stocksQuery->get();
+
+    // Calcular la cantidad de desperdicio para cada stock
+    $stocks->transform(function ($stock) {
+        $stock->waste_quantity = $stock->current_quantity <= 0 ? $stock->stock_quantity : 0;
+        return $stock;
+    });
+
+    // Obtener categorías, productos y proveedores (vendors) para los filtros
+    $categories = Category::all(['id', 'name']);
+    $products = Product::all(['id', 'product_name']);
+    $vendors = Vendor::all(['id', 'name']);  // Suponiendo que tienes un modelo `Vendor`
+
+    // Retornar la vista con los datos necesarios
+    return view('filter.filter', compact('stocks', 'categories', 'products', 'vendors'));
+}
+
 }
