@@ -146,62 +146,20 @@ export default {
           console.log(error);
         });
     },
-
-    // Obtiene los productos según la categoría seleccionada
-    getProduct() {
-      if (this.category === "") {
-        this.products = [];
-        this.product = "";
-      } else {
-        this.products = [];
-        axios
-          .get(base_url + "category/product/" + this.category)
-          .then((response) => {
-            this.products = response.data;
-          });
+    methods: {
+      editProduct(id) {
+        EventBus.$emit("edit-product", id);
       }
-
-      this.getData(1);
-    },
-
-    // Función para editar el stock
-    editStock(id, category_id) {
-      EventBus.$emit("edit-stock", id, category_id);
-    },
-
-    // Función para editar la cantidad
-    editQty(id) {
-      EventBus.$emit("edit-qty", id);
-    },
-
-    // Función para eliminar stock
-    deleteStock(id) {
-      Swal(
-        {
-          title: "¿Estás seguro?",
-          text: "¡No podrás revertir esto!",
-          type: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          cancelButtonText: "Cancelar",
-          confirmButtonText: "¡Sí, eliminar!",
-        },
-        () => { }
-      ).then((result) => {
-        if (result.value) {
-          axios.get(base_url + "stock/delete/" + id).then((res) => {
-            EventBus.$emit("stock-created", 1);
-            this.successALert(res.data);
-          });
-        }
-      });
-    },
-
-    // Función para paginación
-    pageClicked(pageNo) {
-      this.getData(pageNo);
-    },
-  },
-};
-</script>
+    }
+  };
+  </script>
+  
+  <style scoped>
+  .filter-view {
+    margin-top: 20px;
+  }
+  .product-item {
+    margin-bottom: 15px;
+  }
+  </style>
+  

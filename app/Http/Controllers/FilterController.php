@@ -43,7 +43,7 @@ class FilterController extends Controller
         return $stock;
     });
 
-    // Obtener categorías, productos y proveedores (vendors) para los filtros
+     // Obtener categorías, productos y proveedores (vendors) para los filtros
     $categories = Category::all(['id', 'name']);
     $products = Product::all(['id', 'product_name']);
     $vendors = Vendor::all(['id', 'name']);  // Suponiendo que tienes un modelo Vendor
