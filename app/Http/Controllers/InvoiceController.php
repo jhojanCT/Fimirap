@@ -14,6 +14,7 @@ use App\Sell;
 use App\SellDetails;
 use App\Payment;
 use App\Company;
+use App\filter;
 use DB;
 use Auth;
 
