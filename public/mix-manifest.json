@@ -7,7 +7,7 @@
     "/js/product.js": "/js/product.js",
     "/js/customer.js": "/js/customer.js",
     "/js/category.js": "/js/category.js",
-    "/js/report.js": "/js/report.js",
     "/js/dashboard.js": "/js/dashboard.js",
+    "/js/report.js": "/js/report.js",
     "/js/app.js": "/js/app.js"
 }
