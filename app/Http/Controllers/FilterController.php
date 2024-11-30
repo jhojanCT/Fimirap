@@ -15,88 +15,126 @@ class FilterController extends Controller
      */
     public function index(Request $request)
     {
-        try {
-            // Validar el Request
-            $validatedData = $this->validateFilters($request);
-
-            // Obtener los resultados con filtros aplicados
-            $stocks = $this->applyFilters($validatedData);
-
-            // Calcular la cantidad de desperdicio para cada stock
-            $stocks->transform(fn($stock) => $this->calculateWaste($stock));
-
-            // Cargar datos para los filtros
-            $categories = $this->getCategories();
-            $products = $this->getProducts();
-            $vendors = $this->getVendors();
-
-            // Retornar la vista con datos procesados
-            return view('filter.filter', compact('stocks', 'categories', 'products', 'vendors'));
-        } catch (\Exception $e) {
-            return response()->json(['status' => 'error', 'message' => 'Error al procesar los datos: ' . $e->getMessage()], 500);
-        }
-    }
-
-    /**
-     * Valida los filtros enviados en el request.
-     */
-    private function validateFilters(Request $request)
-    {
-        return $request->validate([
+        // Validación de los filtros
+        $validated = $request->validate([
             'category' => 'nullable|exists:categories,id',
             'product' => 'nullable|exists:products,id',
+            'vendor' => 'nullable|exists:vendors,id',
         ]);
-    }
 
-    /**
-     * Aplica los filtros a la consulta de stocks.
-     */
-    private function applyFilters(array $filters)
-    {
-        $query = Stock::with(['product', 'category'])
-            ->orderBy('updated_at', 'desc');
+        // Crear la consulta base
+        $stocksQuery = Stock::with(['product', 'category', 'vendor'])
+                            ->orderBy('updated_at', 'desc');
 
-        if (!empty($filters['category'])) {
-            $query->where('category_id', $filters['category']);
+        // Aplicar los filtros si están presentes en la request
+        if ($request->has('category')) {
+            $stocksQuery->where('category_id', $request->category);
         }
 
-        if (!empty($filters['product'])) {
-            $query->where('product_id', $filters['product']);
+        if ($request->has('product')) {
+            $stocksQuery->where('product_id', $request->product);
         }
 
-        return $query->get();
+        if ($request->has('vendor')) {
+            $stocksQuery->where('vendor_id', $request->vendor);
+        }
+
+        // Obtener los resultados filtrados con paginación
+        $stocks = $stocksQuery->paginate(15);
+
+        // Obtener las categorías, productos y proveedores de forma más eficiente
+        $categories = Category::select('id', 'name')->get();
+        $products = Product::select('id', 'product_name')->get();
+        $vendors = Vendor::select('id', 'name')->get();
+
+        // Pasar los datos a la vista
+        return view('filter.filter', compact('stocks', 'categories', 'products', 'vendors'));
     }
 
     /**
-     * Calcula el desperdicio de un stock.
+     * Muestra el formulario para agregar un nuevo stock.
      */
-    private function calculateWaste($stock)
+    public function create()
     {
-        $stock->waste_quantity = $stock->current_quantity <= 0 ? $stock->stock_quantity : 0;
-        return $stock;
+        // Obtener categorías, productos y proveedores para el formulario
+        $categories = Category::all();
+        $products = Product::all();
+        $vendors = Vendor::all();
+
+        return view('filter.create', compact('categories', 'products', 'vendors'));
     }
 
     /**
-     * Obtiene todas las categorías disponibles.
+     * Almacena un nuevo stock en la base de datos.
      */
-    private function getCategories()
+    public function store(Request $request)
     {
-        return Category::all(['id', 'name']);
+        // Validar los datos recibidos
+        $validated = $request->validate([
+            'product_id' => 'required|exists:products,id',
+            'category_id' => 'required|exists:categories,id',
+            'vendor_id' => 'required|exists:vendors,id',
+            'quantity' => 'required|integer',
+        ]);
+
+        // Crear un nuevo stock
+        Stock::create($validated);
+
+        // Redirigir a la lista de stocks con un mensaje de éxito
+        return redirect()->route('filter.index')->with('success', 'Stock creado exitosamente.');
     }
 
     /**
-     * Obtiene todos los productos disponibles.
+     * Muestra el formulario para editar un stock existente.
      */
-    private function getProducts()
+    public function edit($id)
     {
-        return Product::all(['id', 'product_name']);
+        // Obtener el stock a editar
+        $stock = Stock::findOrFail($id);
+
+        // Obtener las categorías, productos y proveedores para el formulario
+        $categories = Category::all();
+        $products = Product::all();
+        $vendors = Vendor::all();
+
+        return view('filter.edit', compact('stock', 'categories', 'products', 'vendors'));
     }
 
     /**
-     * Obtiene todos los proveedores disponibles.
+     * Actualiza un stock existente en la base de datos.
      */
-    private function getVendors()
+    public function update(Request $request, $id)
     {
-        return Vendor::all(['id', 'name']);
+        // Validar los datos recibidos
+        $validated = $request->validate([
+            'product_id' => 'required|exists:products,id',
+            'category_id' => 'required|exists:categories,id',
+            'vendor_id' => 'required|exists:vendors,id',
+            'quantity' => 'required|integer',
+        ]);
+
+        // Obtener el stock a actualizar
+        $stock = Stock::findOrFail($id);
+
+        // Actualizar los datos del stock
+        $stock->update($validated);
+
+        // Redirigir a la lista de stocks con un mensaje de éxito
+        return redirect()->route('filter.index')->with('success', 'Stock actualizado exitosamente.');
+    }
+
+    /**
+     * Elimina un stock de la base de datos.
+     */
+    public function destroy($id)
+    {
+        // Obtener el stock a eliminar
+        $stock = Stock::findOrFail($id);
+
+        // Eliminar el stock
+        $stock->delete();
+
+        // Redirigir a la lista de stocks con un mensaje de éxito
+        return redirect()->route('filter.index')->with('success', 'Stock eliminado exitosamente.');
     }
 }
