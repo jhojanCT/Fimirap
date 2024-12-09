@@ -6,44 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Filter extends Model
 {
-    // Especifica la tabla si no sigue el nombre plural del modelo
-    // protected $table = 'filters';
+    protected $fillable = [
+        'category_id', 'product_id', 'vendor_id', 'current_quantity_in_use', 
+        'waste', 'supervisor_filtered', 'filter_date'
+    ];
 
-    // Relación con el producto
-    public function product()
-    {
-        return $this->belongsTo('App\Product');
-    }
-
-    // Relación con la categoría
     public function category()
     {
-        return $this->belongsTo('App\Category');
+        return $this->belongsTo(Category::class);
     }
 
-    // Relación con el usuario (si es que los filtros son gestionados por usuarios)
-    public function user()
+    public function product()
     {
-        return $this->belongsTo('App\User')->withDefault([
-            'id' => 0,
-            'name' => 'Unknown User'
-        ]);
+        return $this->belongsTo(Product::class);
     }
 
-    // Relación con los registros de stock, para conocer la cantidad y desperdicio
-    public function stock()
+    public function vendor()
     {
-        return $this->hasMany('App\Stock');
+        return $this->belongsTo(Vendor::class);
     }
-
-    // Relación con la entidad que gestiona la venta, si aplica
-    public function sell_details()
-    {
-        return $this->hasMany('App\SellDetails', 'filter_id');
-    }
-
-    // Si necesitas algún campo específico de esta tabla para el filtro, puedes especificarlo
-    protected $fillable = [
-        'product_id', 'category_id', 'user_id', 'filter_name', 'min_qty', 'max_qty', 'waste_qty'
-    ];
 }

@@ -47,6 +47,7 @@
               <th>Comprobante</th>
               <th>Existencia inicial</th>
               <th>Existencia actual</th>
+              <th>Existencia actual en uso</th>
               <th>Precio de compra</th>
               <th>Precio de venta</th>
               <th>Entrada por</th>
@@ -64,6 +65,7 @@
               <td>{{ value.chalan_no }}</td>
               <td>{{ value.stock_quantity }}</td>
               <td>{{ value.current_quantity }}</td>
+              <td>{{ value.current_quantity_in_use }}</td>
               <td>{{ value.buying_price }}</td>
               <td>{{ value.selling_price }}</td>
               <td>{{ value.user.name }}</td>
