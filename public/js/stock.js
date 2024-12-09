@@ -39857,6 +39857,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -41157,7 +41159,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('table', {
     staticClass: "table table-condensed table-hover table-bordered"
   }, [_vm._m(0), _vm._v(" "), _c('tbody', _vm._l((_vm.stocks.data), function(value, index) {
-    return _c('tr', [_c('td', [_vm._v(_vm._s(value.category.name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(value.product.product_name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(value.vendor.name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(value.chalan_no))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(value.stock_quantity))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(value.current_quantity))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(value.buying_price))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(value.selling_price))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(value.user.name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(_vm._f("moment")(value.created_at, 'LL')))]), _vm._v(" "), _c('td', [_c('button', {
+    return _c('tr', [_c('td', [_vm._v(_vm._s(value.category.name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(value.product.product_name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(value.vendor.name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(value.chalan_no))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(value.stock_quantity))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(value.current_quantity))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(value.current_quantity_in_use))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(value.buying_price))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(value.selling_price))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(value.user.name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(_vm._f("moment")(value.created_at, 'LL')))]), _vm._v(" "), _c('td', [_c('button', {
       staticClass: "btn bg-blue btn-circle waves-effect waves-circle waves-float",
       attrs: {
         "type": "button"
@@ -41200,7 +41202,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   })], 1)])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('thead', [_c('tr', [_c('th', [_vm._v("Categoría")]), _vm._v(" "), _c('th', [_vm._v("Producto")]), _vm._v(" "), _c('th', [_vm._v("Proveedor")]), _vm._v(" "), _c('th', [_vm._v("Comprobante")]), _vm._v(" "), _c('th', [_vm._v("Existencia inicial")]), _vm._v(" "), _c('th', [_vm._v("Existencia actual")]), _vm._v(" "), _c('th', [_vm._v("Precio de compra")]), _vm._v(" "), _c('th', [_vm._v("Precio de venta")]), _vm._v(" "), _c('th', [_vm._v("Entrada por")]), _vm._v(" "), _c('th', [_vm._v("Fecha de entrada")]), _vm._v(" "), _c('th', [_vm._v("Agregar")]), _vm._v(" "), _c('th', [_vm._v("Editar")]), _vm._v(" "), _c('th', [_vm._v("Eliminar")])])])
+  return _c('thead', [_c('tr', [_c('th', [_vm._v("Categoría")]), _vm._v(" "), _c('th', [_vm._v("Producto")]), _vm._v(" "), _c('th', [_vm._v("Proveedor")]), _vm._v(" "), _c('th', [_vm._v("Comprobante")]), _vm._v(" "), _c('th', [_vm._v("Existencia inicial")]), _vm._v(" "), _c('th', [_vm._v("Existencia actual")]), _vm._v(" "), _c('th', [_vm._v("Existencia actual en uso")]), _vm._v(" "), _c('th', [_vm._v("Precio de compra")]), _vm._v(" "), _c('th', [_vm._v("Precio de venta")]), _vm._v(" "), _c('th', [_vm._v("Entrada por")]), _vm._v(" "), _c('th', [_vm._v("Fecha de entrada")]), _vm._v(" "), _c('th', [_vm._v("Agregar")]), _vm._v(" "), _c('th', [_vm._v("Editar")]), _vm._v(" "), _c('th', [_vm._v("Eliminar")])])])
 }]}
 module.exports.render._withStripped = true
 if (false) {
