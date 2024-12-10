@@ -33,7 +33,7 @@
 								<th>Comprobante</th>
 								<th>Fecha</th>
 								<th>Entry By</th>
-								<th>Buying Price</th>
+								<th>process_status</th>
 								<th>Selling Price</th>
 								<th>Stock Quantity</th>
 								<th>Sold Quantity</th>
@@ -61,7 +61,7 @@
 								<td>{{ $value->chalan_no }}</td>
 								<td>{{ date("j M Y", strtotime($value->created_at) ) }}</td>
 								<td>{{ $value->user->name }}</td>
-								<td>{{ $value->buying_price }}</td>
+								<td>{{ $value->process_status }}</td>
 								<td>{{ $value->selling_price }}</td>
 								<td>{{ $value->stock_quantity }}</td>
 								<td>{{ $value->sold_qty }}</td>

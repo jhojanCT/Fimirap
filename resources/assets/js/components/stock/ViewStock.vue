@@ -48,7 +48,7 @@
               <th>Existencia inicial</th>
               <th>Existencia actual</th>
               <th>Existencia actual en uso</th>
-              <th>Precio de compra</th>
+              <th>Porcentaje de elaboracion</th>
               <th>Precio de venta</th>
               <th>Entrada por</th>
               <th>Fecha de entrada</th>
@@ -66,7 +66,7 @@
               <td>{{ value.stock_quantity }}</td>
               <td>{{ value.current_quantity }}</td>
               <td>{{ value.current_quantity_in_use }}</td>
-              <td>{{ value.buying_price }}</td>
+              <td>{{ value.process_status }}</td>
               <td>{{ value.selling_price }}</td>
               <td>{{ value.user.name }}</td>
               <td>{{ value.created_at | moment('LL') }}</td>

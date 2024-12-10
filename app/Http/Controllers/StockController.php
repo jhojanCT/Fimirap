@@ -126,7 +126,7 @@ class StockController extends Controller
         'vendor' => 'required',
         'category' => 'required',
         'quantity' => 'required|integer',
-        'buying_price' => 'required|regex:/^[0-9]+(\.[0-9][0-9]?)?$/',
+        'process_status' => 'required|regex:/^[0-9]+(\.[0-9][0-9]?)?$/',
         'selling_price' => 'required|regex:/^[0-9]+(\.[0-9][0-9]?)?$/',
 
       ]);
@@ -144,7 +144,7 @@ class StockController extends Controller
         $stock->buying_price = $request->buying_price;
         $stock->selling_price = $request->selling_price;
         $stock->chalan_no = date('Y-m-d');
-        $stock->stock_quantity = $request->quantity;
+        $stock->process_status = $request->quantity;
         $stock->current_quantity = $request->quantity;
         $stock->discount = 0;
         $stock->note = $request->note;
