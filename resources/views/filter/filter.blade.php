@@ -60,19 +60,22 @@
                                 <td>{{ $filter->category->name ?? 'Sin categoría' }}</td>
                                 <td>{{ $filter->product->product_name ?? 'Producto desconocido' }}</td>
                                 <td>{{ $filter->vendor->name ?? 'Proveedor desconocido' }}</td>
-                                <td>{{ $filter->current_quantity_in_use ?? 'N/A' }}</td>
+                                <td>{{ $filter->current_quantity_in_use }}</td>
                                 <td>{{ $filter->waste ?? 'N/A' }}</td>
-                                <td>{{ $filter->total_quantity ?? 'N/A' }}</td>
-                                <td>{{ $filter->supervisor_filtered ?? 'N/A' }}</td>
+                                <td>{{ $filter->total_quantity }}</td>
+                                <td>{{ $filter->supervisor_filtered }}</td>
                                 <td>{{ $filter->filter_date ? \Carbon\Carbon::parse($filter->filter_date)->format('d-m-Y') : 'N/A' }}</td>
                                 <td>
                                     <!-- Acciones de editar y eliminar -->
                                     <a href="{{ route('filter.edit', $filter->id) }}" class="btn btn-warning btn-sm">Editar</a>
-                                    <form action="{{ route('filter.delete', $filter->id) }}" method="POST" style="display:inline-block;">
+                                    <form action="{{ route('filter.delete', $filter->id) }}" method="POST" style="display:inline;">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este filtro?')">Eliminar</button>
+
                                     </form>
+                                    <form action="{{ route('filter.delete', $filter->id) }}" method="POST">
+
                                 </td>
                             </tr>
                         @endforeach

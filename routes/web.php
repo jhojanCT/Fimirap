@@ -87,10 +87,6 @@ Route::get('/filters/{id}/edit', [FilterController::class, 'edit'])->name('filte
 Route::delete('/filters/{id}', [FilterController::class, 'destroy'])->name('filter.delete');
 
 
-   
-
-
-
 // Report 
 
 

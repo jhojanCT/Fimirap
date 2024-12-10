@@ -155,13 +155,15 @@ class FilterController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     public function destroy($filter)
+     public function destroy(int $id)
      {
          // Busca y elimina el filtro
-         $filterModel = Filter::findOrFail($filter);
-         $filterModel->delete();
+         $filter = Filter::findOrFail($id);
+         $filter->delete();
      
-         return redirect()->route('filter.index')->with('success', 'Filtro eliminado exitosamente');
+         return redirect()->route('filter.filter')->with('success', 'Filtro eliminado exitosamente.');
      }
+
+
 
 }
