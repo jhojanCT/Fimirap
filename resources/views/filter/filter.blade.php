@@ -68,17 +68,11 @@
                                 <td>
                                     <!-- Acciones de editar y eliminar -->
                                     <a href="{{ route('filter.edit', $filter->id) }}" class="btn btn-warning btn-sm">Editar</a>
-<<<<<<< HEAD
-                                    <form action="{{ route('filter.delete', $filter->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Eliminar</button>
-=======
                                     <form action="{{ route('filter.delete', $filter->id) }}" method="POST" style="display:inline;">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este filtro?')">Eliminar</button>
->>>>>>> cef80e9f8bd02877d516c7c595e27d2ab91cff72
+
                                     </form>
                                     <form action="{{ route('filter.delete', $filter->id) }}" method="POST">
 

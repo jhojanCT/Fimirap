@@ -14,6 +14,6 @@ class ContaController extends Controller
     {
 
         // Pasar los datos a la vista
-        return view('conta.index', compact('menus'));
+        return view('conta.conta');
     }
 }
