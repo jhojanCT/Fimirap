@@ -78,8 +78,9 @@ Route::get('payment/delete/{id}','PaymentController@destroy');
 
 //filter
 Route::resource('filter', FilterController::class); // CRUD básico para filtros
-Route::delete('filter/{id}', [FilterController::class, 'destroy'])->name('filter.delete');
-Route::post('filter/update/{id}', [FilterController::class, 'update'])->name('filter.update');
+Route::delete('/filter/{id}', [FilterController::class, 'destroy'])->name('filter.delete');
+
+
    
 
 

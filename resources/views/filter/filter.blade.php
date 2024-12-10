@@ -53,9 +53,13 @@
                                 <td>
                                     <!-- Acciones de editar y eliminar -->
                                     <a href="{{ route('filter.edit', $filter->id) }}" class="btn btn-warning btn-sm">Editar</a>
-                                    <form action="{{ route('filter.delete', $filter->id) }}" method="POST" style="display:inline;">
-                                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                    <form action="{{ route('filter.delete', $filter->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Eliminar</button>
                                     </form>
+                                    <form action="{{ route('filter.delete', $filter->id) }}" method="POST">
+
                                 </td>
                             </tr>
                         @endforeach
