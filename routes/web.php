@@ -25,6 +25,11 @@ Route::get('supplier/delete/{id}','VendorController@destroy');
 Route::post('supplier/update/{id}','VendorController@update');
 Route::get('vendor-list','VendorController@Vendor');
 
+//conta 
+
+Route::get('/conta', [ContaController::class, 'index'])->name('conta.index');
+
+
 // product category 
 
 Route::resource('category','CategoryController');
@@ -78,8 +83,8 @@ Route::get('payment/delete/{id}','PaymentController@destroy');
 
 //filter
 Route::resource('filter', FilterController::class); // CRUD básico para filtros
-Route::delete('/filter/{id}', [FilterController::class, 'destroy'])->name('filter.delete');
-
+Route::delete('filter/{id}', [FilterController::class, 'destroy'])->name('filter.delete');
+Route::post('filter/update/{id}', [FilterController::class, 'update'])->name('filter.update');
 
    
 
