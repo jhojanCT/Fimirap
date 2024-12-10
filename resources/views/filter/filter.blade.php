@@ -72,7 +72,10 @@
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este filtro?')">Eliminar</button>
+
                                     </form>
+                                    <form action="{{ route('filter.delete', $filter->id) }}" method="POST">
+
                                 </td>
                             </tr>
                         @endforeach

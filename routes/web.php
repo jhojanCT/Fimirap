@@ -26,8 +26,8 @@ Route::post('supplier/update/{id}','VendorController@update');
 Route::get('vendor-list','VendorController@Vendor');
 
 //conta 
+Route::resource('conta', ContaController::class);
 
-Route::get('/conta', [ContaController::class, 'index'])->name('conta.index');
 
 
 // product category 
